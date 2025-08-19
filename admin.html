@@ -15,14 +15,11 @@
   <div class="container">
     <h2 class="my-4 text-center">non_pickup.json 商品管理</h2>
     <div class="mb-3 d-flex gap-2 flex-wrap">
-      <button id="exportJsonBtn" class="btn btn-secondary">匯出 JSON</button>
-      <button id="uploadJsonBtn" class="btn btn-success">上傳到 GitHub</button>
       <button id="addProductBtn" class="btn btn-outline-primary">新增商品</button>
+      <button id="uploadJsonBtn" class="btn btn-success">儲存設定</button>
     </div>
     <div id="jsonMsg"></div>
     <div id="tableArea"></div>
-    <label class="form-label mt-3">JSON 預覽：</label>
-    <textarea id="jsonOutput" class="form-control" readonly></textarea>
   </div>
   <script>
     let products = [];
