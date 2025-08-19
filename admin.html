@@ -15,7 +15,6 @@
   <div class="container">
     <h2 class="my-4 text-center">non_pickup.json 商品管理</h2>
     <div class="mb-3 d-flex gap-2 flex-wrap">
-      <button id="loadJsonBtn" class="btn btn-primary">讀取商品</button>
       <button id="exportJsonBtn" class="btn btn-secondary">匯出 JSON</button>
       <button id="uploadJsonBtn" class="btn btn-success">上傳到 GitHub</button>
       <button id="addProductBtn" class="btn btn-outline-primary">新增商品</button>
@@ -76,8 +75,8 @@
     window.updateGroup = function(idx, val) {
       products[idx].product_group = Number(val);
     };
-    // 讀取 JSON
-    document.getElementById('loadJsonBtn').onclick = async function() {
+    // 讀取 JSON（自動執行）
+    async function loadJson() {
       document.getElementById('jsonMsg').textContent = '';
       try {
         const res = await fetch('/non_pickup.json');
@@ -87,7 +86,9 @@
       } catch(e) {
         document.getElementById('jsonMsg').textContent = e.message;
       }
-    };
+    }
+    // 頁面載入自動讀取
+    window.addEventListener('DOMContentLoaded', loadJson);
     // 匯出 JSON
     document.getElementById('exportJsonBtn').onclick = function() {
       document.getElementById('jsonOutput').value = JSON.stringify(products, null, 2);
