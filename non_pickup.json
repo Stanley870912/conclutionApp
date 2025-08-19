@@ -508,5 +508,10 @@
     "product_group": 99,
     "product_name": "運費(北部)",
     "price": 900
+  },
+  {
+    "product_name": "11111",
+    "price": 1,
+    "product_group": 1
   }
 ]
