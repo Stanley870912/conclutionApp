@@ -19,51 +19,88 @@
   </style>
 </head>
 
-<body>
-  <div x-data="productAdmin()" x-init="loadJson()">
-    <h2 class="my-4 text-center fs-3">商品管理</h2>
-    <div class="mb-3 d-flex gap-2 flex-wrap">
-      <button class="btn btn-outline-primary fs-3" @click="addProduct">新增商品</button>
-      <button class="btn btn-success fs-3" @click="uploadJson">儲存設定</button>
-    </div>
-    <div id="jsonMsg" x-text="msg" class="mb-2 fs-3"></div>
-    <div id="tableArea">
-      <template x-if="products.length">
-        <table class="table table-bordered table-striped fs-3">
-          <thead>
-            <tr>
-              <th class="fs-3">品名</th>
-              <th class="fs-3">單價</th>
-              <th class="fs-3">群組</th>
-              <th class="fs-3">操作</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template x-for="(item, idx) in products" :key="idx">
+<body x-data="adminAuth()" x-init="authCheck()">
+  <template x-if="authorized">
+    <div class="container" x-data="productAdmin()" x-init="loadJson()">
+      <h2 class="my-4 text-center fs-3">商品管理</h2>
+      <div class="mb-3 d-flex gap-2 flex-wrap">
+        <button class="btn btn-outline-primary fs-3" @click="addProduct">新增商品</button>
+        <button class="btn btn-success fs-3" @click="uploadJson">儲存設定</button>
+      </div>
+      <div id="jsonMsg" x-text="msg" class="mb-2 fs-3"></div>
+      <div id="tableArea">
+        <template x-if="products.length">
+          <table class="table table-bordered table-striped fs-3">
+            <thead>
               <tr>
-                <td class="col-6">
-                  <input type="text" class="form-control fs-2" x-model="item.product_name" @input="updateJsonPreview">
-                </td>
-                <td class="col">
-                  <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview">
-                </td>
-                <td class="col">
-                  <input type="number" class="form-control fs-3" x-model.number="item.product_group" min="0" step="1" @input="updateJsonPreview">
-                </td>
-                <td class="col">
-                  <button class="btn btn-danger btn-sm fs-3" @click="deleteProduct(idx)">刪除</button>
-                </td>
+                <th class="fs-3">品名</th>
+                <th class="fs-3">單價</th>
+                <th class="fs-3">群組</th>
+                <th class="fs-3">操作</th>
               </tr>
-            </template>
-          </tbody>
-        </table>
-      </template>
-      <template x-if="!products.length">
-        <p class="fs-3">尚未載入商品</p>
-      </template>
+            </thead>
+            <tbody>
+              <template x-for="(item, idx) in products" :key="idx">
+                <tr>
+                  <td class="col-6">
+                    <input type="text" class="form-control fs-2" x-model="item.product_name" @input="updateJsonPreview">
+                  </td>
+                  <td class="col">
+                    <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview">
+                  </td>
+                  <td class="col">
+                    <input type="number" class="form-control fs-3" x-model.number="item.product_group" min="0" step="1" @input="updateJsonPreview">
+                  </td>
+                  <td class="col">
+                    <button class="btn btn-danger btn-sm fs-3" @click="deleteProduct(idx)">刪除</button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </template>
+        <template x-if="!products.length">
+          <p class="fs-3">尚未載入商品</p>
+        </template>
+      </div>
     </div>
-  </div>
+  </template>
+  <template x-if="!authorized">
+    <div class="container text-center mt-5">
+      <h2 class="fs-2">請輸入管理密碼</h2>
+      <input type="password" class="form-control fs-3 w-50 mx-auto my-3" x-model="password" @keyup.enter="authCheck()">
+      <button class="btn btn-primary fs-3" @click="authCheck()">登入</button>
+      <div class="text-danger mt-2 fs-4" x-text="errorMsg"></div>
+    </div>
+  </template>
   <script>
+    function adminAuth() {
+      return {
+        authorized: false,
+        password: '',
+        errorMsg: '',
+        async authCheck() {
+          if (!this.password) return;
+          try {
+            const res = await fetch('/.netlify/functions/adminPassword', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ password: this.password })
+            });
+            const result = await res.json();
+            if (res.ok && result.success) {
+              this.authorized = true;
+              this.errorMsg = '';
+            } else {
+              this.errorMsg = '密碼錯誤';
+            }
+          } catch (e) {
+            this.errorMsg = '伺服器錯誤';
+          }
+        }
+      }
+    }
+
     function productAdmin() {
       return {
         products: [],
