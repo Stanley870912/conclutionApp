@@ -246,6 +246,8 @@
                   checked
                 };
               });
+              // 按群組排序
+              this.items.sort((a, b) => a.product_group - b.product_group);
             })
             .catch(error => console.error("無法載入資料:", error));
         },

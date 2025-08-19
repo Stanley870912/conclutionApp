@@ -69,20 +69,26 @@
             const res = await fetch('/non_pickup.json');
             if (!res.ok) throw new Error('讀取失敗');
             this.products = await res.json();
+            this.sortProducts();
           } catch (e) {
             this.msg = e.message;
           }
         },
         addProduct() {
           this.products.push({ product_name: '新商品', price: 0, product_group: 0 });
+          this.sortProducts();
           this.$nextTick(() => {
             const inputs = document.querySelectorAll('input[type="text"]');
             if (inputs.length) inputs[inputs.length - 1].focus();
           });
         },
+        sortProducts() {
+          this.products.sort((a, b) => a.product_group - b.product_group);
+        },
         deleteProduct(idx) {
           if (confirm('確定要刪除這個商品嗎？')) {
             this.products.splice(idx, 1);
+            this.sortProducts();
           }
         },
         async uploadJson() {
