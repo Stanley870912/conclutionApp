@@ -18,6 +18,7 @@
   <button id="loadJsonBtn">讀取商品</button>
   <button id="exportJsonBtn">匯出 JSON</button>
   <button id="uploadJsonBtn">上傳到 GitHub</button>
+  <button id="addProductBtn">新增商品</button>
   <div id="jsonMsg"></div>
   <div id="tableArea"></div>
   <textarea id="jsonOutput" readonly></textarea>
@@ -58,6 +59,22 @@
         document.getElementById('jsonMsg').textContent = '上傳失敗：' + e.message;
       }
     };
+    // 新增商品
+    document.getElementById('addProductBtn').onclick = function() {
+      products.push({
+        product_name: '新商品',
+        price: 0,
+        product_group: 0
+      });
+      renderTable();
+    };
+    // 刪除商品
+    window.deleteProduct = function(idx) {
+      if (confirm('確定要刪除這個商品嗎？')) {
+        products.splice(idx, 1);
+        renderTable();
+      }
+    };
     // 渲染商品表格
     function renderTable() {
       const area = document.getElementById('tableArea');
@@ -66,21 +83,30 @@
         return;
       }
       let html = '<table><thead><tr>' +
-        '<th>品名</th><th>單價</th><th>群組</th>' +
+        '<th>品名</th><th>單價</th><th>群組</th><th>操作</th>' +
         '</tr></thead><tbody>';
       products.forEach((item, idx) => {
         html += `<tr>
-          <td>${item.product_name}</td>
+          <td><input type="text" value="${item.product_name}" onchange="updateName(${idx}, this.value)"></td>
           <td><input type="number" value="${item.price}" min="0" step="1" onchange="updatePrice(${idx}, this.value)"></td>
-          <td>${item.product_group}</td>
+          <td><input type="number" value="${item.product_group}" min="0" step="1" onchange="updateGroup(${idx}, this.value)"></td>
+          <td><button onclick="deleteProduct(${idx})">刪除</button></td>
         </tr>`;
       });
       html += '</tbody></table>';
       area.innerHTML = html;
     }
+    // 更新品名
+    window.updateName = function(idx, val) {
+      products[idx].product_name = val;
+    };
     // 更新價格
     window.updatePrice = function(idx, val) {
       products[idx].price = Number(val);
+    };
+    // 更新群組
+    window.updateGroup = function(idx, val) {
+      products[idx].product_group = Number(val);
     };
   </script>
 </body>
