@@ -29,9 +29,16 @@ exports.handler = async (event) => {
         error: errorText
       }) };
     }
-    const { sha } = await metaRes.json();
+    const { sha, content, encoding } = await metaRes.json();
+    // 解析現有內容（可用於比對或備份）
+    // const oldData = JSON.parse(Buffer.from(content, encoding).toString());
 
-    // 2. 寫回 GitHub
+    // 2. base64 編碼新內容
+    const newContentBase64 = Buffer.from(
+      JSON.stringify(newJson, null, 2)
+    ).toString('base64');
+
+    // 3. 寫回 GitHub
     const putRes = await fetch(
       `https://api.github.com/repos/${REPO}/contents/non_pickup.json`,
       {
@@ -42,9 +49,7 @@ exports.handler = async (event) => {
         },
         body: JSON.stringify({
           message: `Update non_pickup.json via admin` ,
-          content: Buffer.from(
-            JSON.stringify(newJson, null, 2)
-          ).toString('base64'),
+          content: newContentBase64,
           sha,
           branch: BRANCH
         })
