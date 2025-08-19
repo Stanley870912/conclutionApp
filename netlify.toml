@@ -1,0 +1,7 @@
+[build]
+  functions = "netlify/functions"
+  publish = "."        # 你的 index.html 就放在專案根目錄
+
+[dev]
+  functions = "netlify/functions"
+  publish = "."
