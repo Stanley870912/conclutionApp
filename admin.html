@@ -21,7 +21,7 @@
     document.getElementById('loadJsonBtn').onclick = async function() {
       document.getElementById('jsonMsg').textContent = '';
       try {
-        const res = await fetch('/.netlify/functions/editNonPickup');
+        const res = await fetch('/non_pickup.json');
         if (!res.ok) throw new Error('讀取失敗');
         const text = await res.text();
         document.getElementById('jsonEditor').value = text;
