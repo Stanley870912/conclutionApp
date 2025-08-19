@@ -20,41 +20,41 @@
 </head>
 
 <body>
-  <div x-data="productAdmin()" x-init="loadJson()">
-    <h2 class="my-4 text-center">商品管理</h2>
+  <div class="container" x-data="productAdmin()" x-init="loadJson()">
+    <h2 class="my-4 text-center fs-2">商品管理</h2>
     <div class="mb-3 d-flex gap-2 flex-wrap">
-      <button class="btn btn-outline-primary" @click="addProduct">新增商品</button>
-      <button class="btn btn-success" @click="uploadJson">儲存設定</button>
+      <button class="btn btn-outline-primary fs-5" @click="addProduct">新增商品</button>
+      <button class="btn btn-success fs-5" @click="uploadJson">儲存設定</button>
     </div>
-    <div id="jsonMsg" x-text="msg" class="mb-2"></div>
+    <div id="jsonMsg" x-text="msg" class="mb-2 fs-5"></div>
     <div id="tableArea">
       <template x-if="products.length">
-        <table class="table table-bordered table-striped">
+        <table class="table table-bordered table-striped fs-5">
           <thead>
             <tr>
-              <th>品名</th>
-              <th>單價</th>
-              <th>群組</th>
-              <th>操作</th>
+              <th class="fs-5">品名</th>
+              <th class="fs-5">單價</th>
+              <th class="fs-5">群組</th>
+              <th class="fs-5">操作</th>
             </tr>
           </thead>
           <tbody>
             <template x-for="(item, idx) in products" :key="idx">
               <tr>
-                <td><input type="text" class="form-control" x-model="item.product_name" @input="updateJsonPreview">
+                <td><input type="text" class="form-control fs-5" x-model="item.product_name" @input="updateJsonPreview">
                 </td>
-                <td><input type="number" class="form-control" x-model.number="item.price" min="0" step="1"
+                <td><input type="number" class="form-control fs-5" x-model.number="item.price" min="0" step="1"
                     @input="updateJsonPreview"></td>
-                <td><input type="number" class="form-control" x-model.number="item.product_group" min="0" step="1"
+                <td><input type="number" class="form-control fs-5" x-model.number="item.product_group" min="0" step="1"
                     @input="updateJsonPreview"></td>
-                <td><button class="btn btn-danger btn-sm" @click="deleteProduct(idx)">刪除</button></td>
+                <td><button class="btn btn-danger btn-sm fs-5" @click="deleteProduct(idx)">刪除</button></td>
               </tr>
             </template>
           </tbody>
         </table>
       </template>
       <template x-if="!products.length">
-        <p>尚未載入商品</p>
+        <p class="fs-4">尚未載入商品</p>
       </template>
     </div>
   </div>
