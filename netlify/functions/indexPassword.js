@@ -1,34 +1,30 @@
-// functions/auth.js
+// Netlify Function: 使用者密碼驗證
+const USER_PASSWORD = '1234'; // 使用者密碼
 
-exports.handler = async (event, context) => {
-  // 僅接受 POST
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
-  // 解析前端傳來的 JSON
-  let body;
-  try {
-    body = JSON.parse(event.body);
-  } catch {
-    return { statusCode: 400, body: "Invalid JSON" };
-  }
-
-  const { password } = body;
-  // 把密碼放在環境變數裡比較安全
-  const SECRET = process.env.PASSWORDIndex; 
-
-  if (password === SECRET) {
-    // 驗證成功
+exports.handler = async (event) => {
+  if (event.httpMethod !== 'POST') {
     return {
-      statusCode: 200,
-      body: JSON.stringify({ ok: true }),
+      statusCode: 405,
+      body: JSON.stringify({ error: '只支援 POST 方法' })
     };
-  } else {
-    // 驗證失敗
+  }
+  try {
+    const body = JSON.parse(event.body || '{}');
+    if (body.password === USER_PASSWORD) {
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ ok: true })
+      };
+    } else {
+      return {
+        statusCode: 401,
+        body: JSON.stringify({ error: '密碼錯誤' })
+      };
+    }
+  } catch (err) {
     return {
-      statusCode: 401,
-      body: JSON.stringify({ ok: false, message: "密碼錯誤" }),
+      statusCode: 400,
+      body: JSON.stringify({ error: '請提供正確格式', details: err.message })
     };
   }
 };
