@@ -41,8 +41,8 @@
           <tbody>
             <template x-for="(item, idx) in products" :key="idx">
               <tr>
-                <td class="col-5">
-                  <input type="text" class="form-control fs-3" x-model="item.product_name" @input="updateJsonPreview">
+                <td class="col-6">
+                  <input type="text" class="form-control fs-2" x-model="item.product_name" @input="updateJsonPreview">
                 </td>
                 <td class="col">
                   <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview">
