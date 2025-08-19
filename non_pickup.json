@@ -1,10 +1,5 @@
 [
   {
-    "product_name": "千層花生酥(盒）",
-    "price": 60,
-    "product_group": 2
-  },
-  {
     "product_group": 1,
     "product_name": "大片酥餅(箱)",
     "price": 960
@@ -58,6 +53,11 @@
     "product_group": 1,
     "product_name": "鹹甜梅糕(箱)",
     "price": 2210
+  },
+  {
+    "product_name": "千層花生酥(盒）",
+    "price": 60,
+    "product_group": 2
   },
   {
     "product_group": 2,
@@ -342,7 +342,7 @@
   {
     "product_group": 9,
     "product_name": "梅子夾芒果",
-    "price": 1466
+    "price": 1377
   },
   {
     "product_group": 9,
@@ -352,7 +352,7 @@
   {
     "product_group": 9,
     "product_name": "地瓜乾(箱)",
-    "price": 2550
+    "price": 2338
   },
   {
     "product_group": 9,
@@ -377,7 +377,7 @@
   {
     "product_group": 9,
     "product_name": "紫地瓜乾(箱)",
-    "price": 2330
+    "price": 2104
   },
   {
     "product_group": 9,
@@ -392,12 +392,12 @@
   {
     "product_group": 9,
     "product_name": "葡萄梅子（原味）(箱)",
-    "price": 5260
+    "price": 4960
   },
   {
     "product_group": 9,
     "product_name": "葡萄梅子（陳皮）(箱)",
-    "price": 5260
+    "price": 4960
   },
   {
     "product_group": 9,
