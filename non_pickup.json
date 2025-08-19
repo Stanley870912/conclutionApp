@@ -1,5 +1,10 @@
 [
   {
+    "product_name": "測試",
+    "price": 10,
+    "product_group": 40
+  },
+  {
     "product_group": 1,
     "product_name": "大片酥餅(箱)",
     "price": 960
