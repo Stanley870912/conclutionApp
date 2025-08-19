@@ -22,7 +22,12 @@ exports.handler = async (event) => {
       { headers: { Authorization: `token ${TOKEN}` } }
     );
     if (!metaRes.ok) {
-      return { statusCode: metaRes.status, body: await metaRes.text() };
+      const errorText = await metaRes.text();
+      return { statusCode: metaRes.status, body: JSON.stringify({
+        step: 'get-meta',
+        status: metaRes.status,
+        error: errorText
+      }) };
     }
     const { sha } = await metaRes.json();
 
@@ -46,7 +51,12 @@ exports.handler = async (event) => {
       }
     );
     if (!putRes.ok) {
-      return { statusCode: putRes.status, body: await putRes.text() };
+      const errorText = await putRes.text();
+      return { statusCode: putRes.status, body: JSON.stringify({
+        step: 'put-file',
+        status: putRes.status,
+        error: errorText
+      }) };
     }
 
     return {
@@ -58,7 +68,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 500,
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ success: false, message: e.message })
+      body: JSON.stringify({ success: false, message: e.message, step: 'catch' })
     };
   }
 };
