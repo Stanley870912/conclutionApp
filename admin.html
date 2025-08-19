@@ -12,11 +12,6 @@
       margin: 40px;
     }
 
-    #jsonOutput {
-      width: 100%;
-      height: 200px;
-    }
-
     .table td,
     .table th {
       vertical-align: middle;
@@ -62,22 +57,18 @@
         <p>尚未載入商品</p>
       </template>
     </div>
-    <label class="form-label mt-3">JSON 預覽：</label>
-    <textarea id="jsonOutput" class="form-control" readonly x-model="jsonPreview"></textarea>
   </div>
   <script>
     function productAdmin() {
       return {
         products: [],
         msg: '',
-        jsonPreview: '',
         async loadJson() {
           this.msg = '';
           try {
             const res = await fetch('/non_pickup.json');
             if (!res.ok) throw new Error('讀取失敗');
             this.products = await res.json();
-            this.updateJsonPreview();
           } catch (e) {
             this.msg = e.message;
           }
@@ -88,16 +79,11 @@
             price: 0,
             product_group: 0
           });
-          this.updateJsonPreview();
         },
         deleteProduct(idx) {
           if (confirm('確定要刪除這個商品嗎？')) {
             this.products.splice(idx, 1);
-            this.updateJsonPreview();
           }
-        },
-        updateJsonPreview() {
-          this.jsonPreview = JSON.stringify(this.products, null, 2);
         },
         async uploadJson() {
           this.msg = '';
