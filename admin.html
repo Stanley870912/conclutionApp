@@ -41,10 +41,18 @@
           <tbody>
             <template x-for="(item, idx) in products" :key="idx">
               <tr>
-                <td><input type="text" class="form-control fs-1" x-model="item.product_name" @input="updateJsonPreview"></td>
-                <td><input type="number" class="form-control fs-1" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview"></td>
-                <td><input type="number" class="form-control fs-1" x-model.number="item.product_group" min="0" step="1" @input="updateJsonPreview"></td>
-                <td><button class="btn btn-danger btn-sm fs-1" @click="deleteProduct(idx)">刪除</button></td>
+                <td class="col-4">
+                  <input type="text" class="form-control fs-1" x-model="item.product_name" @input="updateJsonPreview">
+                </td>
+                <td class="col">
+                  <input type="number" class="form-control fs-1" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview">
+                </td>
+                <td class="col">
+                  <input type="number" class="form-control fs-1" x-model.number="item.product_group" min="0" step="1" @input="updateJsonPreview">
+                </td>
+                <td class="col">
+                  <button class="btn btn-danger btn-sm fs-1" @click="deleteProduct(idx)">刪除</button>
+                </td>
               </tr>
             </template>
           </tbody>
