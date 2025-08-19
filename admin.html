@@ -74,10 +74,10 @@
           }
         },
         addProduct() {
-          this.products.push({
-            product_name: '新商品',
-            price: 0,
-            product_group: 0
+          this.products.push({ product_name: '新商品', price: 0, product_group: 0 });
+          this.$nextTick(() => {
+            const inputs = document.querySelectorAll('input[type="text"]');
+            if (inputs.length) inputs[inputs.length - 1].focus();
           });
         },
         deleteProduct(idx) {
@@ -95,7 +95,7 @@
             });
             const result = await res.json();
             if (result.success) {
-              this.msg = '上傳成功！';
+              this.msg = '上傳成功！請等待約30秒後，變更才會生效!';
             } else {
               this.msg = '上傳失敗：' + (result.message || result.error || '未知錯誤');
             }
