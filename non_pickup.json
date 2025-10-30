@@ -5,6 +5,11 @@
     "product_group": 0
   },
   {
+    "product_group": null,
+    "product_name": "",
+    "price": null
+  },
+  {
     "product_group": 1,
     "product_name": "大片酥餅(箱)",
     "price": 960
@@ -362,7 +367,7 @@
   {
     "product_group": 9,
     "product_name": "駝奶(箱)",
-    "price": 4200
+    "price": 4250
   },
   {
     "product_group": 9,
@@ -478,11 +483,6 @@
     "product_group": 98,
     "product_name": "袋子（小）",
     "price": 200
-  },
-  {
-    "product_group": null,
-    "product_name": "",
-    "price": null
   },
   {
     "product_group": 99,
