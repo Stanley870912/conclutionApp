@@ -347,7 +347,7 @@
   {
     "product_group": 9,
     "product_name": "梅子夾芒果",
-    "price": 1461
+    "price": 1466
   },
   {
     "product_group": 9,
@@ -480,7 +480,7 @@
     "price": 200
   },
   {
-    "product_group": 99,
+    "product_group": null,
     "product_name": "",
     "price": null
   },
