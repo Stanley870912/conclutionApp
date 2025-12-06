@@ -24,7 +24,6 @@
     <div class="container" x-data="productAdmin()" x-init="loadJson()">
       <h2 class="my-4 text-center fs-3">商品管理</h2>
       <div class="mb-3 d-flex gap-2 flex-wrap">
-        <button class="btn btn-outline-primary fs-3" disabled>新增商品</button>
         <button class="btn btn-info fs-3" @click="$refs.fileInput.click()">匯入商品名單</button>
         <input type="file" x-ref="fileInput" @change="importProducts" accept=".json" style="display:none;">
         <button class="btn btn-success fs-3" @click="uploadJson">儲存設定</button>
@@ -37,7 +36,6 @@
               <tr>
                 <th class="fs-3">品名</th>
                 <th class="fs-3">單價</th>
-                <th class="fs-3">群組</th>
               </tr>
             </thead>
             <tbody>
@@ -48,9 +46,6 @@
                   </td>
                   <td class="col">
                     <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1">
-                  </td>
-                  <td class="col">
-                    <input type="number" class="form-control fs-3" x-model.number="item.product_group" readonly>
                   </td>
                 </tr>
               </template>
