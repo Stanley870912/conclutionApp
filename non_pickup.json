@@ -1,5 +1,15 @@
 [
   {
+    "product_name": "新商品",
+    "price": 0,
+    "product_group": 0
+  },
+  {
+    "product_group": null,
+    "product_name": "",
+    "price": null
+  },
+  {
     "product_group": 1,
     "product_name": "大片酥餅(箱)",
     "price": 960
@@ -316,8 +326,8 @@
   },
   {
     "product_group": 7,
-    "product_name": "地瓜餅(盒)",
-    "price": 73
+    "product_name": "花生酥",
+    "price": 2000
   },
   {
     "product_group": 7,
@@ -327,82 +337,72 @@
   {
     "product_group": 9,
     "product_name": "芒果乾(箱)",
-    "price": 7050
+    "price": 7200
   },
   {
     "product_group": 9,
     "product_name": "綜合堅果(包)",
-    "price": 2000
+    "price": 2100
   },
   {
     "product_group": 9,
     "product_name": "蘋果乾",
-    "price": 2330
+    "price": 2571
   },
   {
     "product_group": 9,
     "product_name": "梅子夾芒果",
-    "price": 1377
+    "price": 1466
   },
   {
     "product_group": 9,
     "product_name": "愛馬仕地瓜乾",
-    "price": 3250
+    "price": 3410
   },
   {
     "product_group": 9,
     "product_name": "地瓜乾(箱)",
-    "price": 2338
+    "price": 2550
   },
   {
     "product_group": 9,
     "product_name": "駝奶(箱)",
-    "price": 4010
+    "price": 4250
   },
   {
     "product_group": 9,
     "product_name": "黃魚酥(箱)",
-    "price": 4843
-  },
-  {
-    "product_group": 9,
-    "product_name": "魷魚絲(箱)",
-    "price": 3173
+    "price": 5177
   },
   {
     "product_group": 9,
     "product_name": "龜苓膏(箱)",
-    "price": 1900
-  },
-  {
-    "product_group": 9,
-    "product_name": "紫地瓜乾(箱)",
-    "price": 2104
+    "price": 2000
   },
   {
     "product_group": 9,
     "product_name": "紅棗加核桃(箱)",
-    "price": 3100
+    "price": 3420
   },
   {
     "product_group": 9,
     "product_name": "黑芝麻糕(箱)",
-    "price": 3800
+    "price": 4000
   },
   {
     "product_group": 9,
     "product_name": "葡萄梅子（原味）(箱)",
-    "price": 4960
+    "price": 5845
   },
   {
     "product_group": 9,
     "product_name": "葡萄梅子（陳皮）(箱)",
-    "price": 4960
+    "price": 5845
   },
   {
     "product_group": 9,
     "product_name": "梨膏糖(箱)",
-    "price": 3600
+    "price": 3800
   },
   {
     "product_group": 9,
@@ -417,7 +417,7 @@
   {
     "product_group": 9,
     "product_name": "南棗核桃糕(箱)",
-    "price": 6160
+    "price": 6470
   },
   {
     "product_group": 9,
@@ -431,43 +431,23 @@
   },
   {
     "product_group": 9,
-    "product_name": "牛扎糖(咖啡)(箱)",
-    "price": 6400
-  },
-  {
-    "product_group": 9,
     "product_name": "牛扎糖(蔓越莓)(箱)",
     "price": 6400
   },
   {
     "product_group": 9,
     "product_name": "筷子肉乾(原味) (包)",
-    "price": 1325
+    "price": 1400
   },
   {
     "product_group": 9,
     "product_name": "筷子肉乾(黑胡椒) (包)",
-    "price": 1325
+    "price": 1400
   },
   {
     "product_group": 9,
     "product_name": "筷子肉乾(蒜味) (包)",
-    "price": 1325
-  },
-  {
-    "product_group": 9,
-    "product_name": "牛扎糖(咖啡)(斤)",
-    "price": 320
-  },
-  {
-    "product_group": 9,
-    "product_name": "牛扎糖(蔓越莓)(斤)",
-    "price": 320
-  },
-  {
-    "product_group": 9,
-    "product_name": "牛扎糖(原味)(斤)",
-    "price": 320
+    "price": 1400
   },
   {
     "product_group": 9,
@@ -503,11 +483,6 @@
     "product_group": 98,
     "product_name": "袋子（小）",
     "price": 200
-  },
-  {
-    "product_group": 99,
-    "product_name": "運費(南部)",
-    "price": 800
   },
   {
     "product_group": 99,
