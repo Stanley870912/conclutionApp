@@ -24,7 +24,9 @@
     <div class="container" x-data="productAdmin()" x-init="loadJson()">
       <h2 class="my-4 text-center fs-3">商品管理</h2>
       <div class="mb-3 d-flex gap-2 flex-wrap">
-        <button class="btn btn-outline-primary fs-3" @click="addProduct">新增商品</button>
+        <button class="btn btn-outline-primary fs-3" disabled>新增商品</button>
+        <button class="btn btn-info fs-3" @click="$refs.fileInput.click()">匯入商品名單</button>
+        <input type="file" x-ref="fileInput" @change="importProducts" accept=".json" style="display:none;">
         <button class="btn btn-success fs-3" @click="uploadJson">儲存設定</button>
       </div>
       <div id="jsonMsg" x-text="msg" class="mb-2 fs-3"></div>
@@ -43,16 +45,16 @@
               <template x-for="(item, idx) in products" :key="idx">
                 <tr>
                   <td class="col-6">
-                    <input type="text" class="form-control fs-2" x-model="item.product_name" @input="updateJsonPreview">
+                    <input type="text" class="form-control fs-2" x-model="item.product_name" readonly>
                   </td>
                   <td class="col">
-                    <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1" @input="updateJsonPreview">
+                    <input type="number" class="form-control fs-3" x-model.number="item.price" min="0" step="1">
                   </td>
                   <td class="col">
-                    <input type="number" class="form-control fs-3" x-model.number="item.product_group" min="0" step="1" @input="updateJsonPreview">
+                    <input type="number" class="form-control fs-3" x-model.number="item.product_group" readonly>
                   </td>
                   <td class="col">
-                    <button class="btn btn-danger btn-sm fs-3" @click="deleteProduct(idx)">刪除</button>
+                    <button class="btn btn-danger btn-sm fs-3" disabled>刪除</button>
                   </td>
                 </tr>
               </template>
@@ -126,6 +128,36 @@
         },
         sortProducts() {
           this.products.sort((a, b) => a.product_group - b.product_group);
+        },
+        importProducts(event) {
+          const file = event.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = (e) => {
+            try {
+              const newProducts = JSON.parse(e.target.result);
+              // 建立舊商品的價格對照表 (key: product_name + product_group)
+              const oldPriceMap = {};
+              this.products.forEach(item => {
+                const key = `${item.product_name}_${item.product_group}`;
+                oldPriceMap[key] = item.price;
+              });
+              // 更新商品列表：保留舊價格，新商品使用匯入的價格
+              this.products = newProducts.map(item => {
+                const key = `${item.product_name}_${item.product_group}`;
+                return {
+                  ...item,
+                  price: oldPriceMap[key] !== undefined ? oldPriceMap[key] : item.price
+                };
+              });
+              this.sortProducts();
+              this.msg = '匯入成功！已保留原有商品的價格';
+              event.target.value = ''; // 清空檔案選擇器
+            } catch (err) {
+              this.msg = '匯入失敗：' + err.message;
+            }
+          };
+          reader.readAsText(file);
         },
         deleteProduct(idx) {
           if (confirm('確定要刪除這個商品嗎？')) {
