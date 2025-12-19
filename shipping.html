@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>北部出貨單產生器</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .card {
+      border-radius: .75rem;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    }
+
+    textarea {
+      resize: vertical;
+      font-family: ui-monospace, Menlo, Monaco, Consolas;
+    }
+
+    .shipping-document {
+      background-color: white;
+      padding: 1.5rem;
+      border-radius: .5rem;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .shipping-header {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #333;
+      padding-bottom: 0.3rem;
+    }
+
+    .shipping-info {
+      margin-bottom: 0.8rem;
+      line-height: 1.6;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .shipping-items {
+      margin: 0.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem;
+    }
+
+    .shipping-items table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .shipping-items th,
+    .shipping-items td {
+      border: 1px solid #333;
+      padding: 0.25rem 0.4rem;
+      text-align: left;
+    }
+
+    .shipping-items th {
+      background-color: #e9ecef;
+      font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+      .shipping-items {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .shipping-total {
+      margin-top: 1rem;
+      text-align: right;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-top: 2px solid #333;
+      padding-top: 0.5rem;
+    }
+
+    @media print {
+      body {
+        background-color: white;
+      }
+
+      .no-print {
+        display: none !important;
+      }
+
+      .shipping-document {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+
+<body x-data="shippingDocGenerator()" x-init="init()" class="py-5">
+  <div class="container">
+    <!-- 輸入區域 -->
+    <div class="row justify-content-center mb-4 no-print">
+      <div class="col-12 col-lg-8">
+        <div class="card">
+          <div class="card-header text-center bg-white border-0 pb-0">
+            <h2 class="fw-bold">北部出貨單產生器</h2>
+            <div class="mt-2">
+              <span x-show="!dataLoaded && !loadError" class="badge bg-warning">正在載入產品資料...</span>
+              <span x-show="dataLoaded" class="badge bg-success">產品資料已載入 ✓</span>
+              <span x-show="loadError" class="badge bg-danger">資料載入失敗</span>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="d-flex justify-content-end gap-2 mb-3">
+              <button type="button" class="btn btn-outline-primary" @click="pasteFromClipboard()">貼上</button>
+              <button type="button" class="btn btn-outline-danger" @click="reset()">重置</button>
+            </div>
+            <textarea x-model="inputText" class="form-control mb-3" placeholder="請在此貼上訂單資料" rows="10"></textarea>
+          </div>
+          <div class="card-footer bg-white border-0 text-center">
+            <button class="btn btn-primary btn-lg px-5" @click="generateDocument()">產生出貨單</button>
+            <button class="btn btn-success btn-lg px-5 ms-2" @click="printDocument()" x-show="documentGenerated">列印</button>
+            <button class="btn btn-info btn-lg px-5 ms-2" @click="copyDocument()" x-show="documentGenerated">複製</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 出貨單顯示區域 -->
+    <div class="row justify-content-center" x-show="documentGenerated">
+      <div class="col-12 col-lg-10">
+        <div class="shipping-document" id="shippingDoc">
+          <div class="shipping-header" x-text="header"></div>
+          
+          <div class="shipping-info">
+            <div><strong>成員：</strong><span x-text="member"></span></div>
+            <div><strong>日期：</strong><span x-text="date"></span></div>
+          </div>
+
+          <div class="shipping-items">
+            <!-- 左側表格 -->
+            <table>
+              <thead>
+                <tr>
+                  <th>品名</th>
+                  <th style="text-align: center; width: 80px;">數量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template x-for="(item, index) in items" :key="item.name">
+                  <tr x-show="index % 2 === 0">
+                    <td x-text="item.name"></td>
+                    <td style="text-align: center;" x-text="item.count"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+            
+            <!-- 右側表格 -->
+            <table>
+              <thead>
+                <tr>
+                  <th>品名</th>
+                  <th style="text-align: center; width: 80px;">數量</th>
+                </tr>
+              </thead>
+              <tbody>
+                <template x-for="(item, index) in items" :key="item.name + '_right'">
+                  <tr x-show="index % 2 === 1">
+                    <td x-text="item.name"></td>
+                    <td style="text-align: center;" x-text="item.count"></td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="shipping-total">
+            餅類：<span x-text="Math.round(cakeTotal)"></span> 元　　糖果類：<span x-text="Math.round(candyTotal)"></span> 元　　總金額：<span x-text="Math.round(total)"></span> 元
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function shippingDocGenerator() {
+      return {
+        inputText: '',
+        documentGenerated: false,
+        header: '出 貨 單',
+        member: '',
+        date: '',
+        items: [],
+        total: 0,
+        cakeTotal: 0,
+        candyTotal: 0,
+        productData: [],
+        dataLoaded: false,
+        loadError: false,
+
+        async init() {
+          // 載入產品資料
+          try {
+            const res = await fetch('non_pickup.json');
+            if (!res.ok) {
+              throw new Error(`HTTP ${res.status}`);
+            }
+            this.productData = await res.json();
+            this.dataLoaded = true;
+            console.log('產品資料載入成功，共', this.productData.length, '項');
+          } catch (error) {
+            console.error('無法載入產品資料:', error);
+            this.loadError = true;
+            alert('無法載入產品資料。\n請確認此頁面是透過本地伺服器開啟（如 Live Server）。\n直接開啟 HTML 文件可能會有 CORS 限制。');
+          }
+        },
+
+        reset() {
+          this.inputText = '';
+          this.documentGenerated = false;
+          this.member = '';
+          this.date = '';
+          this.items = [];
+          this.total = 0;
+        },
+
+        pasteFromClipboard() {
+          if (!navigator.clipboard?.readText) {
+            return alert('你的瀏覽器不支援 Clipboard API');
+          }
+          navigator.clipboard.readText()
+            .then(text => this.inputText = text)
+            .catch(err => {
+              console.error(err);
+              alert('讀取剪貼簿失敗：' + err);
+            });
+        },
+
+        parseInput() {
+          const DATE_RE = /^日期:(.+?);?$/;
+          const MEMBER_RE = /^成員:(.+?);?$/;
+          const ITEM_RE = /^【(.+?)】:(\d+);?$/;
+          const TOTAL_RE = /^總金額:\s*([\d.]+)元;?$/;
+          const CAT_RE = /^(.+?):([\d.]+)元;?$/;   // 品類小計
+
+          const data = {
+            member: '',
+            date: '',
+            items: [],
+            total: 0
+          };
+
+          const lines = this.inputText
+            .split('\n')
+            .map(l => l.trim())
+            .filter(Boolean);
+
+          lines.forEach(line => {
+            let match;
+
+            if (DATE_RE.test(line)) {
+              [, match] = DATE_RE.exec(line);
+              data.date = match.trim();
+            } else if (MEMBER_RE.test(line)) {
+              [, match] = MEMBER_RE.exec(line);
+              data.member = match.trim();
+            } else if (ITEM_RE.test(line)) {
+              const [, name, countStr] = ITEM_RE.exec(line);
+              const count = Number(countStr);
+              
+              // 從產品資料中查找價格和分類
+              const product = this.productData.find(p => p.product_name === name.trim());
+              const price = product ? product.price : 0;
+              const productGroup = product ? product.product_group : 0;
+              const subtotal = count * price;
+              
+              data.items.push({
+                name: name.trim(),
+                count: count,
+                price: price,
+                productGroup: productGroup,
+                subtotal: subtotal
+              });
+            } else if (TOTAL_RE.test(line)) {
+              const [, totalStr] = TOTAL_RE.exec(line);
+              data.total = Number(totalStr);
+            } else if (CAT_RE.test(line)) {
+              // 忽略品類小計，如「餅類:19055.00元」
+              return;
+            } else {
+              console.warn(`無法識別的行格式: "${line}"`);
+            }
+          });
+
+          return data;
+        },
+
+        generateDocument() {
+          console.log('開始產生出貨單');
+          
+          if (!this.inputText.trim()) {
+            alert('請先輸入或貼上訂單資料');
+            return;
+          }
+
+          if (!this.dataLoaded || this.productData.length === 0) {
+            alert('產品資料尚未載入，請稍候再試或重新整理頁面');
+            return;
+          }
+
+          const data = this.parseInput();
+          console.log('解析結果:', data);
+
+          if (!data.member) {
+            alert('找不到成員資訊\n請確認格式：成員:XXX');
+            return;
+          }
+
+          if (!data.date) {
+            alert('找不到日期資訊\n請確認格式：日期:YYYY-MM-DD');
+            return;
+          }
+
+          if (data.items.length === 0) {
+            alert('找不到商品資訊\n請確認格式：【商品名稱】:數量');
+            return;
+          }
+
+          this.member = data.member;
+          this.date = data.date;
+          this.items = data.items;
+          
+          // 計算餅類和糖果類的總金額
+          this.cakeTotal = data.items
+            .filter(item => item.productGroup !== 9)
+            .reduce((sum, item) => sum + item.subtotal, 0);
+          
+          this.candyTotal = data.items
+            .filter(item => item.productGroup === 9)
+            .reduce((sum, item) => sum + item.subtotal, 0);
+          
+          // 如果沒有提供總金額，就自動計算
+          if (data.total === 0) {
+            this.total = data.items.reduce((sum, item) => sum + item.subtotal, 0);
+          } else {
+            this.total = data.total;
+          }
+          
+          this.documentGenerated = true;
+
+          // 滾動到出貨單
+          setTimeout(() => {
+            const doc = document.getElementById('shippingDoc');
+            if (doc) {
+              doc.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }, 100);
+        },
+
+        printDocument() {
+          window.print();
+        },
+
+        async copyDocument() {
+          const doc = document.getElementById('shippingDoc');
+          if (!doc) return;
+
+          // 生成純文字版本
+          let text = this.header + '\n\n';
+          text += `成員：${this.member}\n`;
+          text += `日期：${this.date}\n\n`;
+          text += '品名\t\t數量\n';
+          text += '─'.repeat(40) + '\n';
+          this.items.forEach(item => {
+            text += `${item.name}\t\t${item.count}\n`;
+          });
+          text += '─'.repeat(40) + '\n';
+          text += `總金額：${Math.round(this.total)} 元\n`;
+
+          try {
+            await navigator.clipboard.writeText(text);
+            alert('出貨單已複製到剪貼簿');
+          } catch (err) {
+            console.error(err);
+            alert('複製失敗：' + err.message);
+          }
+        }
+      };
+    }
+  </script>
+</body>
+
+</html>
