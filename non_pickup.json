@@ -365,6 +365,16 @@
     "price": 1200
   },
   {
+    "product_group": 7,
+    "product_name": "牛軋餅-原味(箱)",
+    "price": 900
+  },
+  {
+    "product_group": 7,
+    "product_name": "牛軋餅-黑糖(箱)",
+    "price": 900
+  },
+  {
     "product_group": 9,
     "product_name": "芒果乾(箱)",
     "price": 7200
