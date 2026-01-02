@@ -375,6 +375,16 @@
     "price": 900
   },
   {
+    "product_group": 7,
+    "product_name": "紅麥花生酥(包)",
+    "price": 102
+  },
+  {
+    "product_group": 7,
+    "product_name": "糙米花生酥(包)",
+    "price": 102
+  },
+  {
     "product_group": 9,
     "product_name": "芒果乾(箱)",
     "price": 7200
@@ -391,11 +401,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "紅棗加核桃(箱)",
-    "price": 3420
-  },
-  {
-    "product_group": 9,
     "product_name": "黃魚酥原味(箱)",
     "price": 2672
   },
@@ -403,6 +408,11 @@
     "product_group": 9,
     "product_name": "黃魚酥辣味(箱)",
     "price": 2672
+  },
+  {
+    "product_group": 9,
+    "product_name": "紅棗加核桃(箱)",
+    "price": 3420
   },
   {
     "product_group": 9,
@@ -481,11 +491,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "花茶(包)",
-    "price": 11
-  },
-  {
-    "product_group": 9,
     "product_name": "牛扎糖原味(袋)",
     "price": 1450
   },
@@ -496,8 +501,28 @@
   },
   {
     "product_group": 9,
+    "product_name": "花茶(包)",
+    "price": 11
+  },
+  {
+    "product_group": 9,
     "product_name": "洛神花茶(包)",
     "price": 11
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(椒鹽)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(藤椒)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(香辣)(包)",
+    "price": 580
   },
   {
     "product_group": 9,
