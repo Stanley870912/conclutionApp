@@ -196,6 +196,11 @@
   },
   {
     "product_group": 3,
+    "product_name": "好事花生酥(袋)",
+    "price": 83
+  },
+  {
+    "product_group": 3,
     "product_name": "小蘇餅(包)",
     "price": 90
   },
@@ -366,16 +371,6 @@
   },
   {
     "product_group": 7,
-    "product_name": "牛軋餅-原味(箱)",
-    "price": 900
-  },
-  {
-    "product_group": 7,
-    "product_name": "牛軋餅-黑糖(箱)",
-    "price": 900
-  },
-  {
-    "product_group": 7,
     "product_name": "紅麥花生酥(包)",
     "price": 102
   },
@@ -383,6 +378,16 @@
     "product_group": 7,
     "product_name": "糙米花生酥(包)",
     "price": 102
+  },
+  {
+    "product_group": 7,
+    "product_name": "牛軋餅-原味(箱)",
+    "price": 900
+  },
+  {
+    "product_group": 7,
+    "product_name": "牛軋餅-黑糖(箱)",
+    "price": 900
   },
   {
     "product_group": 9,
@@ -401,6 +406,11 @@
   },
   {
     "product_group": 9,
+    "product_name": "紅棗加核桃(箱)",
+    "price": 3420
+  },
+  {
+    "product_group": 9,
     "product_name": "黃魚酥原味(箱)",
     "price": 2672
   },
@@ -408,11 +418,6 @@
     "product_group": 9,
     "product_name": "黃魚酥辣味(箱)",
     "price": 2672
-  },
-  {
-    "product_group": 9,
-    "product_name": "紅棗加核桃(箱)",
-    "price": 3420
   },
   {
     "product_group": 9,
@@ -491,6 +496,11 @@
   },
   {
     "product_group": 9,
+    "product_name": "花茶(包)",
+    "price": 11
+  },
+  {
+    "product_group": 9,
     "product_name": "牛扎糖原味(袋)",
     "price": 1450
   },
@@ -501,28 +511,8 @@
   },
   {
     "product_group": 9,
-    "product_name": "花茶(包)",
-    "price": 11
-  },
-  {
-    "product_group": 9,
     "product_name": "洛神花茶(包)",
     "price": 11
-  },
-  {
-    "product_group": 9,
-    "product_name": "花生姑娘(椒鹽)(包)",
-    "price": 580
-  },
-  {
-    "product_group": 9,
-    "product_name": "花生姑娘(藤椒)(包)",
-    "price": 580
-  },
-  {
-    "product_group": 9,
-    "product_name": "花生姑娘(香辣)(包)",
-    "price": 580
   },
   {
     "product_group": 9,
@@ -538,6 +528,21 @@
     "product_group": 9,
     "product_name": "筷子肉乾(蒜味) (包)",
     "price": 1400
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(椒鹽)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(藤椒)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(香辣)(包)",
+    "price": 580
   },
   {
     "product_group": 9,
