@@ -331,6 +331,11 @@
   },
   {
     "product_group": 7,
+    "product_name": "開心果(包)",
+    "price": 1360
+  },
+  {
+    "product_group": 7,
     "product_name": "芝麻冬瓜糕",
     "price": 60
   },
@@ -351,13 +356,13 @@
   },
   {
     "product_group": 7,
-    "product_name": "梅餅(包)",
-    "price": 140
+    "product_name": "冬瓜糕(盒)",
+    "price": 50
   },
   {
     "product_group": 7,
-    "product_name": "冬瓜糕(盒)",
-    "price": 50
+    "product_name": "梅餅(包)",
+    "price": 140
   },
   {
     "product_group": 7,
@@ -496,11 +501,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "花茶(包)",
-    "price": 11
-  },
-  {
-    "product_group": 9,
     "product_name": "牛扎糖原味(袋)",
     "price": 1450
   },
@@ -512,6 +512,11 @@
   {
     "product_group": 9,
     "product_name": "洛神花茶(包)",
+    "price": 11
+  },
+  {
+    "product_group": 9,
+    "product_name": "花茶(包)",
     "price": 11
   },
   {
