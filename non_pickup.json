@@ -56,6 +56,11 @@
   },
   {
     "product_group": 2,
+    "product_name": "老婆餅(檸檬)",
+    "price": 11
+  },
+  {
+    "product_group": 2,
     "product_name": "老婆餅(甜)(包)",
     "price": 11
   },
@@ -63,21 +68,6 @@
     "product_group": 2,
     "product_name": "老婆餅(鹹)（需先預定）(包)",
     "price": 11
-  },
-  {
-    "product_group": 2,
-    "product_name": "老婆餅(檸檬)",
-    "price": 11
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(黑糖蜂蜜)(包)",
-    "price": 55
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(白胡椒)(包)",
-    "price": 55
   },
   {
     "product_group": 2,
@@ -93,6 +83,16 @@
     "product_group": 2,
     "product_name": "薄餅(孜然)（需先預定）(包)",
     "price": 65
+  },
+  {
+    "product_group": 2,
+    "product_name": "薄餅(黑糖蜂蜜)(包)",
+    "price": 55
+  },
+  {
+    "product_group": 2,
+    "product_name": "薄餅(白胡椒)(包)",
+    "price": 55
   },
   {
     "product_group": 2,
@@ -395,6 +395,16 @@
     "price": 900
   },
   {
+    "product_group": 8,
+    "product_name": "鳳梨苦瓜汁(瓶)",
+    "price": 50
+  },
+  {
+    "product_group": 8,
+    "product_name": "木鱉果汁(瓶)",
+    "price": 50
+  },
+  {
     "product_group": 9,
     "product_name": "芒果乾(箱)",
     "price": 7200
@@ -476,16 +486,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "黃魚酥原味(箱)",
-    "price": 2800
-  },
-  {
-    "product_group": 9,
-    "product_name": "黃魚酥辣味(箱)",
-    "price": 2800
-  },
-  {
-    "product_group": 9,
     "product_name": "魷魚絲(箱)",
     "price": 3465
   },
@@ -493,6 +493,16 @@
     "product_group": 9,
     "product_name": "南棗核桃糕(箱)",
     "price": 6470
+  },
+  {
+    "product_group": 9,
+    "product_name": "黃魚酥原味(箱)",
+    "price": 2800
+  },
+  {
+    "product_group": 9,
+    "product_name": "黃魚酥辣味(箱)",
+    "price": 2800
   },
   {
     "product_group": 9,
