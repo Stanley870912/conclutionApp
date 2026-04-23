@@ -376,16 +376,6 @@
   },
   {
     "product_group": 7,
-    "product_name": "紅麥花生酥(包)",
-    "price": 102
-  },
-  {
-    "product_group": 7,
-    "product_name": "糙米花生酥(包)",
-    "price": 102
-  },
-  {
-    "product_group": 7,
     "product_name": "牛軋餅-原味(箱)",
     "price": 900
   },
@@ -393,6 +383,16 @@
     "product_group": 7,
     "product_name": "牛軋餅-黑糖(箱)",
     "price": 900
+  },
+  {
+    "product_group": 7,
+    "product_name": "紅麥花生酥(包)",
+    "price": 102
+  },
+  {
+    "product_group": 7,
+    "product_name": "糙米花生酥(包)",
+    "price": 102
   },
   {
     "product_group": 8,
@@ -531,11 +531,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "花生姑娘(香辣)(包)",
-    "price": 580
-  },
-  {
-    "product_group": 9,
     "product_name": "筷子肉乾(原味) (包)",
     "price": 1475
   },
@@ -551,6 +546,26 @@
   },
   {
     "product_group": 9,
+    "product_name": "花生姑娘(香辣)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
+    "product_name": "蔓越莓杏仁酥(袋)",
+    "price": 1500
+  },
+  {
+    "product_group": 9,
+    "product_name": "無花果核桃派(箱)",
+    "price": 3841
+  },
+  {
+    "product_group": 9,
+    "product_name": "駝奶原包裝袋(束)",
+    "price": 175
+  },
+  {
+    "product_group": 9,
     "product_name": "玥珍軒袋(包)",
     "price": 380
   },
@@ -558,11 +573,6 @@
     "product_group": 9,
     "product_name": "各式貼紙(張)",
     "price": 1
-  },
-  {
-    "product_group": 9,
-    "product_name": "黑豆袋子(包)",
-    "price": 225
   },
   {
     "product_group": 9,
