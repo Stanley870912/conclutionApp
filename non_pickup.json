@@ -230,6 +230,16 @@
     "price": 1550
   },
   {
+    "product_group": 3,
+    "product_name": "芒果雪q餅(包)",
+    "price": 1550
+  },
+  {
+    "product_group": 3,
+    "product_name": "杏仁梅糕(包)",
+    "price": 1812
+  },
+  {
     "product_group": 4,
     "product_name": "土鳳梨酥(箱)",
     "price": 1400
@@ -403,6 +413,11 @@
     "product_group": 8,
     "product_name": "木鱉果汁(瓶)",
     "price": 50
+  },
+  {
+    "product_group": 8,
+    "product_name": "寒天珊瑚草凍(塊)",
+    "price": 72
   },
   {
     "product_group": 9,
