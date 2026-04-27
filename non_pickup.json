@@ -86,17 +86,17 @@
   },
   {
     "product_group": 2,
+    "product_name": "薄餅(黑胡椒)(包)",
+    "price": 55
+  },
+  {
+    "product_group": 2,
     "product_name": "薄餅(黑糖蜂蜜)(包)",
     "price": 55
   },
   {
     "product_group": 2,
     "product_name": "薄餅(白胡椒)(包)",
-    "price": 55
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(黑胡椒)(包)",
     "price": 55
   },
   {
@@ -411,16 +411,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "綜合堅果(包)",
-    "price": 2100
-  },
-  {
-    "product_group": 9,
-    "product_name": "蘋果乾",
-    "price": 2571
-  },
-  {
-    "product_group": 9,
     "product_name": "梅子夾芒果",
     "price": 1466
   },
@@ -433,6 +423,16 @@
     "product_group": 9,
     "product_name": "地瓜乾(箱)",
     "price": 2550
+  },
+  {
+    "product_group": 9,
+    "product_name": "綜合堅果(包)",
+    "price": 2100
+  },
+  {
+    "product_group": 9,
+    "product_name": "蘋果乾",
+    "price": 2571
   },
   {
     "product_group": 9,
@@ -531,6 +531,11 @@
   },
   {
     "product_group": 9,
+    "product_name": "花生姑娘(香辣)(包)",
+    "price": 580
+  },
+  {
+    "product_group": 9,
     "product_name": "筷子肉乾(原味) (包)",
     "price": 1475
   },
@@ -546,11 +551,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "花生姑娘(香辣)(包)",
-    "price": 580
-  },
-  {
-    "product_group": 9,
     "product_name": "蔓越莓杏仁酥(袋)",
     "price": 1500
   },
@@ -558,6 +558,11 @@
     "product_group": 9,
     "product_name": "無花果核桃派(箱)",
     "price": 3841
+  },
+  {
+    "product_group": 9,
+    "product_name": "愛心袋",
+    "price": 150
   },
   {
     "product_group": 9,
@@ -573,11 +578,6 @@
     "product_group": 9,
     "product_name": "各式貼紙(張)",
     "price": 1
-  },
-  {
-    "product_group": 9,
-    "product_name": "愛心袋",
-    "price": 150
   },
   {
     "product_group": 98,
@@ -601,11 +601,6 @@
   },
   {
     "product_group": 99,
-    "product_name": "運費(自取)",
-    "price": 0
-  },
-  {
-    "product_group": 99,
     "product_name": "運費(北部)",
     "price": 900
   },
@@ -613,5 +608,10 @@
     "product_group": 99,
     "product_name": "運費(南部)",
     "price": 800
+  },
+  {
+    "product_group": 99,
+    "product_name": "運費(自取)",
+    "price": 0
   }
 ]
