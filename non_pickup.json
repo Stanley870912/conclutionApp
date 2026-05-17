@@ -96,6 +96,11 @@
   },
   {
     "product_group": 2,
+    "product_name": "薄餅(黑胡椒)(包)",
+    "price": 55
+  },
+  {
+    "product_group": 2,
     "product_name": "手提芝麻脆餅(包)",
     "price": 80
   },
@@ -103,11 +108,6 @@
     "product_group": 2,
     "product_name": "手提椒鹽脆餅(包)",
     "price": 80
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(黑胡椒)(包)",
-    "price": 55
   },
   {
     "product_group": 2,
@@ -201,6 +201,31 @@
   },
   {
     "product_group": 3,
+    "product_name": "單色糕(綠豆)15粒",
+    "price": 65
+  },
+  {
+    "product_group": 3,
+    "product_name": "單色糕(杏仁)15粒",
+    "price": 65
+  },
+  {
+    "product_group": 3,
+    "product_name": "單色糕(芝麻)15粒",
+    "price": 65
+  },
+  {
+    "product_group": 3,
+    "product_name": "鳳凰酥(包)",
+    "price": 160
+  },
+  {
+    "product_group": 3,
+    "product_name": "好事花生酥(袋)",
+    "price": 83
+  },
+  {
+    "product_group": 3,
     "product_name": "小蘇餅(包)",
     "price": 90
   },
@@ -216,13 +241,13 @@
   },
   {
     "product_group": 3,
-    "product_name": "鳳凰酥(包)",
-    "price": 160
+    "product_name": "凍干草苺雪Q餅(袋)",
+    "price": 1550
   },
   {
     "product_group": 3,
-    "product_name": "好事花生酥(袋)",
-    "price": 83
+    "product_name": "雪Ｑ餅(包)",
+    "price": 1350
   },
   {
     "product_group": 3,
@@ -233,16 +258,6 @@
     "product_group": 3,
     "product_name": "杏仁梅糕(包)",
     "price": 1812
-  },
-  {
-    "product_group": 3,
-    "product_name": "雪Ｑ餅(包)",
-    "price": 1350
-  },
-  {
-    "product_group": 3,
-    "product_name": "凍干草苺雪Q餅(袋)",
-    "price": 1550
   },
   {
     "product_group": 4,
