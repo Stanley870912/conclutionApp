@@ -16,13 +16,13 @@
   },
   {
     "product_group": 1,
-    "product_name": "鳳眼糕(盒)",
-    "price": 95
+    "product_name": "麵茶(包)",
+    "price": 70
   },
   {
     "product_group": 1,
-    "product_name": "麵茶(包)",
-    "price": 70
+    "product_name": "鳳眼糕(盒)",
+    "price": 95
   },
   {
     "product_group": 1,
@@ -56,11 +56,6 @@
   },
   {
     "product_group": 2,
-    "product_name": "老婆餅(檸檬)",
-    "price": 11
-  },
-  {
-    "product_group": 2,
     "product_name": "老婆餅(甜)(包)",
     "price": 11
   },
@@ -68,6 +63,21 @@
     "product_group": 2,
     "product_name": "老婆餅(鹹)（需先預定）(包)",
     "price": 11
+  },
+  {
+    "product_group": 2,
+    "product_name": "老婆餅(檸檬)",
+    "price": 11
+  },
+  {
+    "product_group": 2,
+    "product_name": "薄餅(白胡椒)(包)",
+    "price": 55
+  },
+  {
+    "product_group": 2,
+    "product_name": "薄餅(黑胡椒)(包)",
+    "price": 55
   },
   {
     "product_group": 2,
@@ -87,16 +97,6 @@
   {
     "product_group": 2,
     "product_name": "薄餅(黑糖蜂蜜)(包)",
-    "price": 55
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(白胡椒)(包)",
-    "price": 55
-  },
-  {
-    "product_group": 2,
-    "product_name": "薄餅(黑胡椒)(包)",
     "price": 55
   },
   {
@@ -201,11 +201,6 @@
   },
   {
     "product_group": 3,
-    "product_name": "單色糕(牛奶)15粒",
-    "price": 65
-  },
-  {
-    "product_group": 3,
     "product_name": "單色糕(綠豆)15粒",
     "price": 65
   },
@@ -221,13 +216,18 @@
   },
   {
     "product_group": 3,
-    "product_name": "鳳凰酥(包)",
-    "price": 160
+    "product_name": "單色糕(牛奶)15粒",
+    "price": 65
   },
   {
     "product_group": 3,
     "product_name": "好事花生酥(袋)",
     "price": 83
+  },
+  {
+    "product_group": 3,
+    "product_name": "鳳凰酥(包)",
+    "price": 160
   },
   {
     "product_group": 3,
@@ -396,13 +396,13 @@
   },
   {
     "product_group": 7,
-    "product_name": "梅餅(包)",
-    "price": 155
+    "product_name": "冬瓜糕(盒)",
+    "price": 50
   },
   {
     "product_group": 7,
-    "product_name": "冬瓜糕(盒)",
-    "price": 50
+    "product_name": "梅餅(包)",
+    "price": 155
   },
   {
     "product_group": 7,
@@ -451,6 +451,36 @@
   },
   {
     "product_group": 9,
+    "product_name": "葡萄梅子（原味）(箱)",
+    "price": 6020
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生酥(袋)",
+    "price": 2000
+  },
+  {
+    "product_group": 9,
+    "product_name": "龜苓膏(箱)",
+    "price": 2060
+  },
+  {
+    "product_group": 9,
+    "product_name": "梨膏糖(箱)",
+    "price": 3708
+  },
+  {
+    "product_group": 9,
+    "product_name": "黑豆(包)",
+    "price": 1545
+  },
+  {
+    "product_group": 9,
+    "product_name": "薑母茶(箱)",
+    "price": 4790
+  },
+  {
+    "product_group": 9,
     "product_name": "梅子夾芒果",
     "price": 1510
   },
@@ -471,36 +501,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "梨膏糖(箱)",
-    "price": 3708
-  },
-  {
-    "product_group": 9,
-    "product_name": "黑豆(包)",
-    "price": 1545
-  },
-  {
-    "product_group": 9,
-    "product_name": "薑母茶(箱)",
-    "price": 4790
-  },
-  {
-    "product_group": 9,
-    "product_name": "葡萄梅子（原味）(箱)",
-    "price": 6020
-  },
-  {
-    "product_group": 9,
-    "product_name": "花生酥(袋)",
-    "price": 2000
-  },
-  {
-    "product_group": 9,
-    "product_name": "龜苓膏(箱)",
-    "price": 2060
-  },
-  {
-    "product_group": 9,
     "product_name": "葡萄梅子（陳皮）(箱)",
     "price": 6020
   },
@@ -508,6 +508,11 @@
     "product_group": 9,
     "product_name": "黑芝麻糕(箱)",
     "price": 3914
+  },
+  {
+    "product_group": 9,
+    "product_name": "駝奶(箱)",
+    "price": 4385
   },
   {
     "product_group": 9,
@@ -528,11 +533,6 @@
     "product_group": 9,
     "product_name": "黃魚酥辣味(箱)",
     "price": 2752
-  },
-  {
-    "product_group": 9,
-    "product_name": "駝奶(箱)",
-    "price": 4385
   },
   {
     "product_group": 9,
@@ -561,11 +561,6 @@
   },
   {
     "product_group": 9,
-    "product_name": "花生姑娘(香辣)(包)",
-    "price": 580
-  },
-  {
-    "product_group": 9,
     "product_name": "筷子肉乾(原味) (包)",
     "price": 1442
   },
@@ -581,13 +576,18 @@
   },
   {
     "product_group": 9,
-    "product_name": "無花果核桃派(箱)",
-    "price": 4128
+    "product_name": "花生姑娘(香辣)(包)",
+    "price": 580
   },
   {
     "product_group": 9,
-    "product_name": "蔓越莓杏仁酥(袋)",
-    "price": 1545
+    "product_name": "花生姑娘(藤椒)(包)",
+    "price": 670
+  },
+  {
+    "product_group": 9,
+    "product_name": "花生姑娘(原味)(包)",
+    "price": 670
   },
   {
     "product_group": 9,
@@ -598,6 +598,16 @@
     "product_group": 9,
     "product_name": "梅有芭樂(箱)",
     "price": 7210
+  },
+  {
+    "product_group": 9,
+    "product_name": "無花果核桃派(箱)",
+    "price": 4128
+  },
+  {
+    "product_group": 9,
+    "product_name": "蔓越莓杏仁酥(袋)",
+    "price": 1545
   },
   {
     "product_group": 9,
@@ -641,8 +651,8 @@
   },
   {
     "product_group": 99,
-    "product_name": "運費(自取)",
-    "price": 0
+    "product_name": "運費(北部)",
+    "price": 900
   },
   {
     "product_group": 99,
@@ -651,7 +661,7 @@
   },
   {
     "product_group": 99,
-    "product_name": "運費(北部)",
-    "price": 900
+    "product_name": "運費(自取)",
+    "price": 0
   }
 ]
